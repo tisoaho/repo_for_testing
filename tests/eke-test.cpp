@@ -22,7 +22,18 @@ TEST_GROUP(eke)
 
 TEST(eke, can_be_called)
 {
-    CHECK(0);
+    char test_dummy[] = "DUMMY";
     
+    CHECK_EQUAL(0, eke_sort(test_dummy));
 }
 
+
+TEST(eke, sorts_according_to_spec)
+{
+
+    char string_to_sort[] = "eke-elektroniikka";
+    const char expected[] = "eeeertiioakkkln";
+
+    eke_sort(string_to_sort);
+    STRCMP_EQUAL(expected, string_to_sort);
+}
