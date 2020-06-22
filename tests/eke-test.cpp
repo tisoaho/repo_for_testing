@@ -60,3 +60,13 @@ TEST(eke, returns_fail_with_null_string)
 {
     CHECK_EQUAL(-1, eke_sort(NULL)); 
 }
+
+TEST(eke, converts_input_to_lower_case)
+{
+    char string_to_sort[] = "EKE-ELEKTRONIIKKA";
+    const char expected[] = "eeeertiioakkkkln"; // REALLY! There is 4 k's!
+
+    eke_sort(string_to_sort);
+    STRCMP_EQUAL(expected, string_to_sort);
+    
+}
